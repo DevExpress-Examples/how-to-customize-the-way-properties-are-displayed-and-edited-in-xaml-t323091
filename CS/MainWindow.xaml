@@ -1,0 +1,36 @@
+﻿<Window 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" 
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid" 
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    dx:ThemeManager.ThemeName="Office2016White"
+    x:Class="DXSample.MainWindow"
+    x:Name="win" 
+    Title="MainWindow" 
+    Height="350" 
+    Width="525">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<dxprg:PropertyGridControl SelectedObject="{Binding Path=.}" ShowProperties="WithPropertyDefinitions" ExpandCategoriesWhenSelectedObjectChanged="True">
+            <dxprg:PropertyDefinition Path="Id">
+                <dxprg:PropertyDefinition.EditSettings>
+                    <dxe:SpinEditSettings MinValue="0"/>
+                </dxprg:PropertyDefinition.EditSettings>
+            </dxprg:PropertyDefinition>
+            <dxprg:PropertyDefinition Type="{x:Type sys:String}">
+                <dxprg:PropertyDefinition.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=.}" Foreground="Green"/>
+                    </DataTemplate>
+                </dxprg:PropertyDefinition.HeaderTemplate>
+            </dxprg:PropertyDefinition>
+		</dxprg:PropertyGridControl>
+	</Grid>
+</Window>
